@@ -3,7 +3,7 @@ import numpy as np
 from flask import Flask, request, render_template
 import joblib
 
-with open(f'joblib_model1.pkl', 'rb') as f:
+with open(f'etr_model.pkl', 'rb') as f:
     model = joblib.load(f)
 
 app = Flask(__name__)
