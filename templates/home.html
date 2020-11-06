@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Predictable</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='styles.css')}}">
+</head>
+<body>
+		
+	<h1>SHADOWS</h1>
+	<h2>Motor Temperature Prediction</h2>
+	<div id="line"></div>
+	<br>
+	<div class="ml-container">
+
+		<form action="{{ url_for('predict')}}" method="POST">
+
+		<h3>Enter 11 INPUTS</h3>
+		<input type="number" step="0.000001" class="num" name="ambient" placeholder="Ambient" value="-0.752143" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="coolant" placeholder="Coolant" value="-1.118446" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="u_d" placeholder="u_d" value="0.327935" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="u_q" placeholder="u_q" value="-1.297858" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="motor_speed" placeholder="Motor Speed" value="-1.222428" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="torque" placeholder="Torque" value="-0.250182" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="i_d" placeholder="i_d" value="1.029572" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="i_q" placeholder="i_q" value="-0.24586" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="stator_yoke" placeholder="Stator Yoke" value="-1.831422" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="stator_tooth" placeholder="Stator Tooth" value="-2.066143" required/>
+		<br>
+		<input type="number" step="0.000001" class="num" name="stator_winding" placeholder="Stator Winding" value="-2.018033" required/>
+		<br>
+		<input type="number" step="1" min="1" class="num" name="profile_id" placeholder="Profile Id" value="4" required/>
+		<br>
+
+		<input type="submit" value="Predict">
+
+<!---	
+		<h3>Upload a CSV file containing 11 features same as the order below!</h3>
+		<h3></h3>
+		<h3 id="features">Ambient, Coolent, u_d, u_q, Motor_Speed, i_d, i_q, Stator_Yoke, Stator_Tooth, Stator_Winding & Profile_Id</h3>
+		<br>
+		<br>
+		<div id="line"></div>
+		<br>
+		<br>
+		<input type="file" name="test_csv">
+		<br>
+		<br>
+		<br>
+		<input type="submit" value="Predict">
+-->
+	</form>
+	</div>
+
+<br>
+
+<div id="prediction">
+	{{ prediction_text }}
+</div>
+
+</body>
+</html>
